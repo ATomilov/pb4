@@ -1,0 +1,1 @@
+<div id="bs-frontend"></div>

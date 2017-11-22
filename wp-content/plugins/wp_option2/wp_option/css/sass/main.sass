@@ -1,0 +1,397 @@
+.clear
+  clear: both
+
+.ol
+  background: #fff
+  border-radius: 5px
+  box-shadow: #ddd 3px
+  position: relative
+  margin-top: 20px
+  overflow: hidden
+  min-height: 540px
+
+  .sidebar
+    width: 170px
+    position: absolute
+    float: left
+    background: url('../img/sidebar-bg.jpg') repeat-y
+    height: 100%
+    border-right: 1px solid #ddd
+
+    .nav ul li
+      border-bottom: 1px solid #ededed
+
+
+      &.active a
+        color: #013079
+        background-color: #fff
+
+      a
+        color: #595f66
+        padding: 9px 18px 12px 18px
+        display: inline-block
+        text-decoration: none
+
+  .content
+    padding: 30px 30px 30px 200px
+
+
+.ol-asset-index
+  .nav-tabs
+    margin-bottom: 30px
+    border: 0
+    > li
+      float: left
+      width: 23%
+      border: 1px solid #DDDDDD
+      background: #fafafa
+      margin-right: 2.6%
+      margin-bottom: 0
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+      border-radius: 3px
+      > a
+        border: 0
+        color: #737373
+        i
+          margin-right: 10px
+          font-size: 20px
+          position: relative
+          top: 4px
+      &:nth-child(4)
+        margin-right: 0
+      &.active, &:hover
+        background: #eaeaea
+        border-color: #dedede
+        a, a:hover
+          border: 0
+          background: transparent
+          color: #000
+
+  .tab-content
+    .panel
+      margin-bottom: 10px
+    .panel-heading
+      padding: 7px 20px
+      line-height: 14px
+      background: #fafafa
+
+    .panel-body
+      padding: 15px 20px
+      p
+        font-style: 13px
+        line-height: 24px
+
+      .extra-info
+        border-top: 1px solid #eee
+        margin-top: 15px
+        padding-top: 15px
+        strong
+          font-weight: 600
+          padding-right: 5px
+
+
+#market-review-scroller
+  margin-bottom: 40px
+  .nav-tabs>li.active>a,
+  .nav-tabs>li.active>a:focus,
+  .nav-tabs>li>a:hover
+    color: #fff
+    background-color: #333
+    border: 1px solid #3d3d3d
+  .market-review-month
+    position: relative
+    .nav-tabs>li>a
+      color: #dbdbdb
+
+    .slide-ctrl
+      padding: 9px 0
+      text-align: left
+      &[direction="forward"]
+        text-align: right
+
+  .slide-ctrl
+    width: 4%
+    position: absolute
+    left: 0
+    top: 0
+    cursor: pointer
+    text-align: center
+    &[direction="forward"]
+      right: 0
+      left: auto
+
+  ul
+    overflow-x: hidden
+    overflow-y: hidden
+    width: 92%
+    display: block
+    white-space: nowrap
+    border-bottom: 0
+    margin: 0 4%
+    &::-webkit-scrollbar
+      display: none
+    li
+      display: inline-block
+      float: none
+        //width: 100px
+
+  .calendar
+    position: relative
+    .slide-ctrl
+      background: #333
+      padding: 11px 0
+      height: 45px
+      &:hover
+        background: #3f3f3f
+
+  .links
+    border: 1px solid #333
+    background: #333
+    overflow-x: hidden
+    overflow-y: hidden
+    height: 45px
+    .day-date
+      a
+        float: left
+        padding: 5px 15px
+        line-height: 20px
+        margin-top: 7px
+        -webkit-border-radius: 3px
+        -moz-border-radius: 3px
+        border-radius: 3px
+        color: #dddddd
+      &.active
+        a
+          color: #000
+          background: #ffffff
+
+.market-report-item
+  margin-bottom: 30px
+  overflow: hidden
+  .flip
+    padding-right: 20px
+    width: 10%
+  .day
+    font-size: 40px
+    position: relative
+    top: 5px
+
+  .market-content
+    float: left
+    width: 90%
+    h2
+      margin-bottom: 15px !important
+
+.dark
+  &.ol-asset-index
+    .nav-tabs
+      > li
+        border-color: #292b2f
+        background: #23272c
+        > a
+          color: #eee
+        &.active, &:hover
+          background: #F7E543
+          border-color: transparent
+          a, a:hover
+            background: transparent
+            color: #000
+
+
+    .tab-content
+      background: transparent
+      .panel
+        border-color: #292b2f
+        background: #23272c
+
+      .panel-heading
+        background: transparent
+        color: #fff
+
+      .panel-body
+        background: transparent
+        border-color: #000000
+
+        .extra-info
+          border-color: #3e404b
+        p
+          color: #dcdcdc
+      .panel-heading+.panel-collapse>.panel-body
+        border-color: #31343c
+
+
+
+
+
+.sidebar
+  .register-form
+    background: #23272c
+
+    padding: 30px
+    border: 1px solid #292b2f
+    -webkit-border-radius: 6px
+    -moz-border-radius: 6px
+    border-radius: 6px
+
+    overflow: hidden
+    font-weight: 200
+
+
+  .quick-links
+    ul
+      border-left: 3px solid #393939
+      li
+        -webkit-border-top-right-radius: 3px
+        -webkit-border-bottom-right-radius: 3px
+        -moz-border-radius-topright: 3px
+        -moz-border-radius-bottomright: 3px
+        border-top-right-radius: 3px
+        border-bottom-right-radius: 3px
+
+        &.active, &:hover
+          background: #373737
+          a
+            color: #F7E543
+            position: relative
+            left: -3px
+            border-left: 3px solid #F7E543
+
+        a
+          font-weight: 400
+          text-decoration: none
+          color: #9c9c9c
+          display: block
+          padding: 8px 15px 7px 15px
+          cursor: pointer
+          z-index: 1
+
+
+  .rss-feed
+    .nav-tabs.nav-justified
+      background: #191c20
+      -webkit-border-radius: 3px
+      -moz-border-radius: 3px
+      border-radius: 3px
+      & > li
+        & > a
+          border-color: #1b1f23
+          color: #7c8085
+          border-bottom: 0
+
+        &.active, &:hover
+          a
+            background: #23272c
+            border-color: #2f343a
+            color: #f0f0f0
+
+    .tab-content
+      background: #23272c
+      border: 1px solid #2f343a
+      border-top: 0
+      color: #f0f0f0
+      padding: 25px 30px
+      max-height: 350px
+      overflow-y: scroll
+      -webkit-border-bottom-right-radius: 3px
+      -webkit-border-bottom-left-radius: 3px
+      -moz-border-radius-bottomright: 3px
+      -moz-border-radius-bottomleft: 3px
+      border-bottom-right-radius: 3px
+      border-bottom-left-radius: 3px
+
+      .WidgetNewsItem
+        margin-bottom: 25px
+        h2
+          font-size: 16px
+          line-height: 20px
+          margin-bottom: 5px
+
+        span
+          font-size: 12px
+          text-transform: uppercase
+          color: #989898
+          margin-bottom: 5px
+          display: block
+
+        p
+          font-size: 13px
+          line-height: 16px
+          color: #bdbdbd
+
+          a
+            color: #c6a92d
+
+
+
+  .news-ticker
+    width: 100%
+    height: 50px
+    overflow: hidden
+
+    .ol-list
+      width: 150%
+
+    .widgetTickerItem
+      height: 50px
+      text-align: center
+      vertical-align: middle
+      line-height: 50px
+      float: left
+
+
+.registeringForm
+  input, select
+    width: 35%
+    float: left
+
+  label
+    float: left
+    width: 30%
+
+  .ol-error
+    float: left
+    width: 25%
+    padding: 0 3%
+    font-size: 12px
+    line-height: 17px
+    color: red
+
+  input[type="submit"]
+    padding: 15px 25px
+    width: 35%
+    height: auto
+
+  .required-fields
+    font-size: 13px
+
+  .form-group
+    content: ''
+    display: block
+    clear: both
+    overflow: hidden
+
+    .checkbox label
+      font-weight: 300
+      width: 65%
+    .checkbox input
+      float: none
+      width: auto
+
+  .phone-group-input
+    #phone-prefix
+      width: 8%
+      margin-right: 1%
+    #phone
+      width: 26%
+
+  .errors
+    width: 65%
+    margin: 30px 0
+    padding: 5px 10px
+    color: #a94442
+    background-color: #f2dede !important
+    background-image: none
+    background-repeat: no-repeat
+    filter: none
+    border-color: #ebccd1

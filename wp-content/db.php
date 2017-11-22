@@ -1,0 +1,1 @@
+C:/OpenServer/OSPanel/domains/pb4/wp-content/plugins/query-monitor/wp-content/db.php
