@@ -10,33 +10,40 @@ Text Domain: wp-fx-plugin
  */
 
 define('PLUGIN_DIR', dirname(__FILE__) . '/');
+define('PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
 function my_acf_settings_path($path)
 {
-    $path = dirname(__FILE__) . '/assets/libs/acf/';
+    $path = PLUGIN_DIR . '/assets/libs/acf/';
     return $path;
 }
 add_filter('acf/settings/path', 'my_acf_settings_path');
 
 function my_acf_settings_dir($dir)
 {
-    $dir = plugin_dir_url(__FILE__) . 'assets/libs/acf/';
+    $dir = PLUGIN_DIR_URL . 'assets/libs/acf/';
     return $dir;
 }
 add_filter('acf/settings/dir', 'my_acf_settings_dir');
 
-include_once plugin_dir_path(__FILE__) . 'assets/libs/acf/acf.php';
+include_once PLUGIN_DIR . 'assets/libs/acf/acf.php';
 
 function add_scripts()
 {
-    wp_enqueue_script('jquery', plugin_dir_url(__FILE__) . '/assets/js/jquery-3.2.1.min.js');
-    wp_enqueue_script('clndr', plugin_dir_url(__FILE__) . '/assets/js/clndr.min.js');
+    wp_enqueue_script('jquery', PLUGIN_DIR_URL . 'assets/js/jquery-3.2.1.min.js');
+    wp_enqueue_script('clndr', PLUGIN_DIR_URL . 'assets/js/clndr.min.js');
+    wp_enqueue_script('main', PLUGIN_DIR_URL . 'assets/js/main.js');
+    $static_url = '//' . get_option('ol_static_url') . '/sdk.js';
+    wp_enqueue_script('oo-ol-api-js', $static_url, [], '', false);
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/require.min.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/forms.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/widgets.js');
 }
 add_action('wp_enqueue_scripts', 'add_scripts');
 
 function add_styles()
 {
-    wp_enqueue_style('main', plugin_dir_url(__FILE__) . '/assets/css/main.css');
+    wp_enqueue_style('main', PLUGIN_DIR_URL . 'assets/css/main.css');
 }
 add_action('wp_enqueue_scripts', 'add_styles');
 
@@ -57,7 +64,7 @@ include_once 'includes/faq/load.php';
 
 include_once 'includes/webinars/load.php';
 
-include_once 'includes/forms/load.php';
+//include_once 'includes/forms/load.php';
 
 include_once 'includes/settings/load.php';
 
@@ -79,3 +86,37 @@ include_once 'includes/shortcodes/shortcode-definition-education-center.php';
 include_once 'includes/shortcodes/shortcode-definition-loader.php'; //Think about how make this better
 
 include_once 'includes/shortcodes/shortcode-definition-webinars.php';
+
+include_once 'includes/shortcodes/shortcode-definition-forms.php';
+
+function ol_new_nav__menu_items($items, $args)
+{
+    ob_start();
+    include ol_locate_template('ol/forms/top.php');
+    if ($overridden_template = locate_template('wp-fx-plugin/forms-top.php')) {
+        load_template($overridden_template);
+    } else {
+        load_template(PLUGIN_DIR . '/templates/forms/forms-top.php');
+    }
+    $result = ob_get_clean();
+    $items = $items . $result;
+    return $items;
+}
+
+add_filter('wp_nav_menu_items', 'ol_new_nav__menu_items', 10, 2);
+
+function ol_modals()
+{
+    ob_start();
+    if ($overridden_template = locate_template('wp-fx-plugin/forms-modals.php')) {
+        load_template($overridden_template);
+    } else {
+        load_template(PLUGIN_DIR . '/templates/forms/forms-modals.php');
+    }
+    //include PLUGIN_DIR . 'templates/forms/forms-js.php';
+    //include PLUGIN_DIR . 'templates/widgets/widgets-js.php';
+    $result = ob_get_clean();
+    echo $result;
+}
+
+add_action('wp_footer', 'ol_modals');

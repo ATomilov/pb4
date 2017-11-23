@@ -8,7 +8,8 @@ function ol_shortcode($atts)
     );
     $id = $a['id'];
     ob_start();
-    include plugin_dir_path(__FILE__) . 'shortcode.php';
+    //include plugin_dir_path(__FILE__) . 'shortcode.php';
+    include PLUGIN_DIR . 'includes/loader/shortcode.php';
     $result = ob_get_clean();
     return $result;
 }

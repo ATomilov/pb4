@@ -1,6 +1,4 @@
-<script type="text/javascript">
-
-	(function($) {
+(function($) {
 
 		/*
 		 * Spawn optionlift api client
@@ -67,6 +65,3 @@
 		});
 
 	})(jQuery);
-
-
-</script>

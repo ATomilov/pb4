@@ -21,18 +21,23 @@
                         ),
                     );
                     $the_query = new WP_Query( $args );
-                    wp_reset_postdata();
                     while ( $the_query->have_posts() ) {
                         $the_query->the_post();
                         ?>
-                        <p><a data-toggle="collapse" href="#collapse<?php the_ID();?>" class="heading-collapse"><?php the_title();?></a></p>
+                        <div class="heading-collapse">
+                            <a href="">
+                                <?php the_title();?>
+                            </a>
+                        </div>
                         <div id="collapse<?php the_ID();?>" class="collapse">
                             <?php the_content();?>
                         </div>
                         <?php
         
                     }
+                    wp_reset_postdata();
                 }
+                
 
                 ?>
                      
@@ -41,9 +46,3 @@
         </div><!--row-->       
         <p><!-- end row --></p>       
     </div>
-<script type="text/javascript">
-
-    (function($) {
- 
-    })(jQuery);
-</script>

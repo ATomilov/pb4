@@ -1,16 +1,16 @@
-<?php if ( $custom_css !== '' ) { ?>
+<?php if ($custom_css !== '') {?>
 	<style>
 
 		<?php echo $custom_css; ?>
 
 	</style>
-<?php } ?>
+<?php }?>
 
 
-<?php if ( $custom_js !== '' ) { ?>
+<?php if ($custom_js !== '') {?>
 	<script type="text/javascript">
 
 		<?php echo $custom_js; ?>
 
 	</script>
-<?php } ?>
+<?php }?>
