@@ -38,6 +38,10 @@ function add_scripts()
     wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/require.min.js');
     wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/forms.js');
     wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/widgets.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/moment.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/underscore-min.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/forgot.js');
+    wp_enqueue_script('require', PLUGIN_DIR_URL . 'assets/js/market-review.js');
 }
 add_action('wp_enqueue_scripts', 'add_scripts');
 
@@ -56,7 +60,7 @@ include_once 'includes/education-center/load.php';
 
 include_once 'includes/asset-index/load.php';
 
-include_once 'includes/registration/load.php';
+//include_once 'includes/registration/load.php';
 
 include_once 'includes/forgot/load.php';
 
@@ -120,3 +124,25 @@ function ol_modals()
 }
 
 add_action('wp_footer', 'ol_modals');
+
+
+function ol_custom_columns($column, $post_id)
+{
+    switch ($column) {
+        case 'shortcode':
+            echo '<input value="[ol-platform id=' . $post_id . ']" type="text"/>';
+            break;
+
+        case 'publisher':
+            echo get_post_meta($post_id, 'publisher', true);
+            break;
+    }
+}
+add_action('manage_platforms_posts_custom_column', 'ol_custom_columns', 10, 2);
+
+/* Add custom column to post list */
+function ol_add_columns($columns)
+{
+    return array_merge($columns, array('shortcode' => __('Shortcode', 'your_text_domain')));
+}
+add_filter('manage_platforms_posts_columns', 'ol_add_columns');

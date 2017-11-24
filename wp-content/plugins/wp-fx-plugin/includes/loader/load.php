@@ -1,10 +1,9 @@
 <?php
 
 add_action('init', 'ol_platforms_init');
-add_action('manage_platforms_posts_custom_column', 'ol_custom_columns', 10, 2);
-add_filter('manage_platforms_posts_columns', 'ol_add_columns');
-//require 'shortcode-definition.php';
-//require_once 'crm-settings.php';
+
+
+include PLUGIN_DIR . '/includes/loader/crm-settings.php';
 
 /**
  * Register a platforms post type.
@@ -45,23 +44,4 @@ function ol_platforms_init()
     );
 
     register_post_type('platforms', $args);
-}
-
-function ol_custom_columns($column, $post_id)
-{
-    switch ($column) {
-        case 'shortcode':
-            echo '<input value="[ol-platform id=' . $post_id . ']" type="text"/>';
-            break;
-
-        case 'publisher':
-            echo get_post_meta($post_id, 'publisher', true);
-            break;
-    }
-}
-
-/* Add custom column to post list */
-function ol_add_columns($columns)
-{
-    return array_merge($columns, array('shortcode' => __('Shortcode', 'your_text_domain')));
 }

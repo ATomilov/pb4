@@ -15,4 +15,4 @@
 
         <input type="submit" value="Start Trading Now!" class="color-animation">
     </form>
-</div><!-- end register-form -->
+</div>

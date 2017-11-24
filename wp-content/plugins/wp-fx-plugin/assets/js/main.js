@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-    $(".heading-collapse").click(function() {
-        $(".collapse").slideToggle();
+    $('.faq-section').on('click', '.faq_item', function() {
+        $(this).children('.faq_info_exp').slideToggle();
     });
 });

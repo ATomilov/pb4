@@ -1,5 +1,4 @@
 <form id="open-account-form" class="open-account-form-forward" name="open-account-form" method="post" action="#">
-
     <div style="margin-bottom:10px;">
         <input style="margin-bottom:10px;" type="text" name="fname" id="open-account-form-first-name" class="first_name" placeholder="Full Name">
         <input type="text" name="lname" id="open-account-form-last-name" class="last_name" placeholder="Last Name">

@@ -12,7 +12,7 @@
     <!-- Tab panes -->
     <div class="tab-content">
         <?php $cnt = 0;?>
-        <?php foreach($olAssetsIndex as $group=>$assets):?>
+        <?php foreach($olAssetsIndex as $group=>$assets) :?>
             <div role="tabpanel" class="tab-pane <?php echo $cnt == 0 ? 'active' : ''; ?>" id="<?php echo $group;?>" >
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <?php $assetnum = 0;?>
